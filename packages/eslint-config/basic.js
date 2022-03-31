@@ -184,7 +184,7 @@ module.exports = defineConfig({
     ],
     'object-curly-spacing': ['error', 'always'],
     'no-return-await': 'off',
-    'space-before-function-paren': ['error', 'never'],
+    'space-before-function-paren': ['error', { asyncArrow: 'always', named: 'never', anonymous: 'never' }],
 
     // es6
     'no-var': 'error',

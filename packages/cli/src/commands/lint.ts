@@ -2,7 +2,7 @@ import execa from 'execa'
 import ora from 'ora'
 import type { Ora } from 'ora'
 
-export const lint = async() => {
+export const lint = async () => {
   let o: Ora
   try {
     o = ora('eslint starting...').start()
