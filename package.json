@@ -1,0 +1,48 @@
+{
+  "name": "@jade/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@6.32.3",
+  "keywords": [
+    "jade"
+  ],
+  "license": "MIT",
+  "author": "linco <zzomilk@gmail.com>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinzxz/jade.git"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm -y",
+    "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
+    "lint": "jade-cli lint"
+  },
+  "bugs": {
+    "url": "https://github.com/colinzxz/jade/issues"
+  },
+  "homepage": "https://github.com/colinzxz/jade#readme",
+  "devDependencies": {
+    "@jade/cli": "workspace:*",
+    "@jade/eslint-config": "workspace:*",
+    "eslint": "^8.12.0",
+    "execa": "5",
+    "lint-staged": "^12.3.7",
+    "ora": "5",
+    "simple-git": "^3.5.0",
+    "simple-git-hooks": "^2.7.0",
+    "sucrase": "^3.20.3",
+    "tsup": "^5.12.1",
+    "typescript": "^4.6.3"
+  },
+  "lint-staged": {
+    "{packages,scripts}/**/*.{js,ts,tsx,vue,md}": [
+      "eslint --fix"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx --no-install lint-staged"
+  }
+}

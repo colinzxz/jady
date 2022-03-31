@@ -1,0 +1,24 @@
+{
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    // "source.fixAll": false,
+    // "sorece.fixAll.eslint": true
+    "source.fixAll.eslint": true
+  },
+  "prettier.enable": false,
+  "eslint.trace.server": "verbose",
+  "eslint.validate": [
+    "vue",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "json",
+    "josnc",
+    "json5",
+    "markdown"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
