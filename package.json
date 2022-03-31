@@ -18,7 +18,8 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm -y",
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
-    "lint": "jade-cli lint"
+    "lint": "jade-cli lint",
+    "changelog": "jade-cli changelog"
   },
   "bugs": {
     "url": "https://github.com/colinzxz/jade/issues"
