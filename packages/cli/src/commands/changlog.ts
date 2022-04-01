@@ -9,7 +9,7 @@ interface ChangelogOptions {
   releaseCount?: number
 }
 
-export const changelog = ({ releaseCount = 0, file = 'CHANGELOG.md' }: ChangelogOptions) => {
+export const changelog = ({ releaseCount = 0, file = 'CHANGELOG.md' }: ChangelogOptions = {}) => {
   const o = ora().start('Generating changelog')
 
   return new Promise<void>((resolve) => {
