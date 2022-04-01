@@ -49,7 +49,7 @@ async function updateVersion(version: string) {
 async function gitStore(version: string) {
   try {
     await execa('git', ['add', '.'])
-    await execa('git', ['commit', '-m', `chore: release v${version}"`])
+    await execa('git', ['commit', '-m', `chore: release v${version}`])
     await execa('git', ['tag', '-a', `v${version}`, '-m', `v${version}`])
   } catch {
     logger.error('Store package.json has failed, please store manually.')

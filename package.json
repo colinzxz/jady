@@ -21,7 +21,7 @@
     "lint": "jade-cli lint",
     "changelog": "jade-cli changelog",
     "release": "jade-cli release",
-    "publish": "sucrase-node scripts/build && jade-cli release -- -p",
+    "publish": "sucrase-node scripts/publish && jade-cli release -p",
     "typecheck": "tsc --noEmit"
   },
   "bugs": {
