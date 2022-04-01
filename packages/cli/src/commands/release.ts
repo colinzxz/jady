@@ -28,7 +28,10 @@ export const release = async ({ publish }: { publish?: boolean } = {}) => {
 
     logger.success(`Release version ${version} successfully!`)
 
-    if (publish) npmPublish(version)
+    if (publish) {
+      await npmPublish(version)
+      await gitPush()
+    }
   } catch (error: any) {
     logger.error(error.toString())
     process.exit(1)
@@ -78,8 +81,6 @@ async function npmPublish(version: string) {
   } else {
     o.succeed('Publish all packages successfully')
     stdout && logger.info(stdout)
-
-    gitPush()
   }
 }
 
