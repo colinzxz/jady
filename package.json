@@ -17,6 +17,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm -y",
+    "postinstall": "pnpm run -C packages/cli build",
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
     "lint": "jade-cli lint",
     "changelog": "jade-cli changelog"

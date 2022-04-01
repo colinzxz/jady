@@ -13,8 +13,9 @@
     "jade-cli": "./dist/index.js"
   },
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "clean": "",
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -23,7 +24,8 @@
     "execa": "^5.0.0",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.0.1",
-    "ora": "^5.0.0"
+    "ora": "^5.0.0",
+    "tsup": "^5.12.1"
   },
   "devDependencies": {
     "@types/conventional-changelog": "^3.1.1",
