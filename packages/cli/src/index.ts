@@ -16,8 +16,8 @@ const version = readJsonSync(resolve(CWD, 'package.json')).version
 const program = new Command()
 
 program
-  .name('jade-cli')
-  .version(`jade-cli ${version}`)
+  .name('jady-cli')
+  .version(`jady-cli ${version}`)
   .usage('<command> [options]')
 
 program.command('lint')

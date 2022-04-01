@@ -1,10 +1,10 @@
 {
-  "name": "@jade/monorepo",
+  "name": "@jady/monorepo",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@6.32.3",
   "keywords": [
-    "jade"
+    "jady"
   ],
   "license": "MIT",
   "author": "linco <zzomilk@gmail.com>",
@@ -13,24 +13,24 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/colinzxz/jade.git"
+    "url": "git+https://github.com/colinzxz/jady.git"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm -y",
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
-    "lint": "jade-cli lint",
-    "changelog": "jade-cli changelog",
-    "release": "jade-cli release",
-    "publish": "sucrase-node scripts/publish && jade-cli release -p",
+    "lint": "jady-cli lint",
+    "changelog": "jady-cli changelog",
+    "release": "jady-cli release",
+    "publish": "sucrase-node scripts/publish && jady-cli release -p",
     "typecheck": "tsc --noEmit"
   },
   "bugs": {
-    "url": "https://github.com/colinzxz/jade/issues"
+    "url": "https://github.com/colinzxz/jady/issues"
   },
-  "homepage": "https://github.com/colinzxz/jade#readme",
+  "homepage": "https://github.com/colinzxz/jady#readme",
   "devDependencies": {
-    "@jade/cli": "workspace:*",
-    "@jade/eslint-config": "workspace:*",
+    "@jady/cli": "workspace:*",
+    "@jady/eslint-config": "workspace:*",
     "eslint": "^8.12.0",
     "execa": "^5.0.0",
     "lint-staged": "^12.3.7",

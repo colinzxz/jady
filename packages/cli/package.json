@@ -1,7 +1,7 @@
 {
-  "name": "@jade/cli",
+  "name": "@jady/cli",
   "version": "0.0.0",
-  "description": "cli of jade",
+  "description": "cli of jady",
   "license": "MIT",
   "author": "linco <zzomilk@gmail.com>",
   "files": [
@@ -9,7 +9,7 @@
     "src"
   ],
   "bin": {
-    "jade-cli": "./dist/index.js"
+    "jady-cli": "./dist/index.js"
   },
   "scripts": {
     "dev": "pnpm run build -- --watch",
