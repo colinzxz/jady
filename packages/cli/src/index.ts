@@ -32,6 +32,7 @@ program.command('changelog')
 
 program
   .command('release')
+  .option('-p, --publish', 'publish package of npm')
   .description('release all packages and generate changelog')
   .action(release)
 

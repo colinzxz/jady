@@ -3,11 +3,13 @@ import { main as bump } from 'bumpp/dist/cli'
 import execa from 'execa'
 import fg from 'fast-glob'
 import { readJson, writeJson } from 'fs-extra'
+import ora from 'ora'
+
 import { CWD } from '../shared/constant'
 import logger from '../shared/logger'
 import { changelog } from './changlog'
 
-export const release = async () => {
+export const release = async ({ publish }: { publish?: boolean } = {}) => {
   try {
     await checkGitEmpty()
 
@@ -25,6 +27,8 @@ export const release = async () => {
     await gitStore(version)
 
     logger.success(`Release version ${version} successfully!`)
+
+    if (publish) npmPublish(version)
   } catch (error: any) {
     logger.error(error.toString())
     process.exit(1)
@@ -45,8 +49,8 @@ async function updateVersion(version: string) {
 async function gitStore(version: string) {
   try {
     await execa('git', ['add', '.'])
-    await execa('git', ['commit', '-m', `v${version}`])
-    await execa('git', ['tag', `v${version}`])
+    await execa('git', ['commit', '-m', `chore: release v${version}"`])
+    await execa('git', ['tag', '-a', `v${version}`, '-m', `v${version}`])
   } catch {
     logger.error('Store package.json has failed, please store manually.')
   }
@@ -59,4 +63,29 @@ async function checkGitEmpty() {
 
     process.exit()
   }
+}
+
+async function npmPublish(version: string) {
+  const o = ora().start('Publish packages staring...')
+  const args = ['-r', 'publish', '--access', 'public']
+
+  version.includes('beta') && args.push('--tag', 'beta')
+
+  const { stderr, stdout } = await execa('pnpm', args)
+
+  if (stderr && stderr.includes('npm ERR!')) {
+    throw new Error(`\n${stderr}`)
+  } else {
+    o.succeed('Publish all packages successfully')
+    stdout && logger.info(stdout)
+
+    gitPush()
+  }
+}
+
+async function gitPush() {
+  const s = ora().start('Pushing to remote git repository')
+  const { stdout } = await execa('git', ['push', '--follow-tags'])
+  s.succeed('Push remote repository successfully')
+  stdout && logger.info(stdout)
 }

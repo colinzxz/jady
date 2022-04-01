@@ -17,11 +17,11 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm -y",
-    "postinstall": "pnpm run -C packages/cli build",
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
     "lint": "jade-cli lint",
     "changelog": "jade-cli changelog",
     "release": "jade-cli release",
+    "publish": "sucrase-node scripts/build && jade-cli release -- -p",
     "typecheck": "tsc --noEmit"
   },
   "bugs": {
@@ -32,9 +32,9 @@
     "@jade/cli": "workspace:*",
     "@jade/eslint-config": "workspace:*",
     "eslint": "^8.12.0",
-    "execa": "5",
+    "execa": "^5.0.0",
     "lint-staged": "^12.3.7",
-    "ora": "5",
+    "ora": "^5.0.0",
     "simple-git": "^3.5.0",
     "simple-git-hooks": "^2.7.0",
     "sucrase": "^3.20.3",
