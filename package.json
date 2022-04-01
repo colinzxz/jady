@@ -21,7 +21,8 @@
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
     "lint": "jade-cli lint",
     "changelog": "jade-cli changelog",
-    "release": "jade-cli release"
+    "release": "jade-cli release",
+    "typecheck": "tsc --noEmit"
   },
   "bugs": {
     "url": "https://github.com/colinzxz/jade/issues"

@@ -1,6 +1,4 @@
 import { resolve } from 'path'
-/**
- *@ts-expect-error */
 import { main as bump } from 'bumpp/dist/cli'
 import execa from 'execa'
 import fg from 'fast-glob'

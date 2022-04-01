@@ -13,9 +13,8 @@
     "jade-cli": "./dist/index.js"
   },
   "scripts": {
-    "clean": "",
-    "dev": "tsup --watch",
-    "build": "tsup"
+    "dev": "pnpm run build -- --watch",
+    "build": "tsup src/index.ts --format cjs --dts --clean"
   },
   "dependencies": {
     "bumpp": "^7.1.1",

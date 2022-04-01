@@ -5,15 +5,18 @@
     "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "preserveValueImports": true,
+    // Enforce using `import type` instead of `import` for types
+    "importsNotUsedAsValues": "error",
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "module": "esnext",
     "moduleResolution": "node",
+    "noImplicitAny": false,
     "resolveJsonModule": true,
-    "rootDir": ".",
     "skipLibCheck": true,
     "strict": true,
     "target": "es6",
   },
-  "exclude": ["node_modules", "**/__tests__", "**/dist"]
+  "exclude": ["node_modules", "**/__tests__", "**/dist", "packages/eslint-config"]
 }
