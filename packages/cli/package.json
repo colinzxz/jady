@@ -6,8 +6,7 @@
   "author": "linco <zzomilk@gmail.com>",
   "files": [
     "dist",
-    "src",
-    "tsconfig.json"
+    "src"
   ],
   "bin": {
     "jade-cli": "./dist/index.js"
