@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 
+import { resolve } from 'path'
 import { Command } from 'commander'
+import { readJsonSync } from 'fs-extra'
+
 import { changelog } from './commands/changlog'
 import { lint } from './commands/lint'
+import { release } from './commands/release'
+
+import { CWD } from './shared/constant'
 import logger from './shared/logger'
 
-logger.info('x')
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const version = require('../package.json').version
+const version = readJsonSync(resolve(CWD, 'package.json')).version
 
 const program = new Command()
 
@@ -25,6 +29,11 @@ program.command('changelog')
   .option('-f, --file <file>', 'changelog filename')
   .description('generate changelog')
   .action(changelog)
+
+program
+  .command('release')
+  .description('release all packages and generate changelog')
+  .action(release)
 
 program.on('command:*', ([cmd]) => {
   program.outputHelp()

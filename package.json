@@ -20,7 +20,8 @@
     "postinstall": "pnpm run -C packages/cli build",
     "bootstrap": "pnpm i && sucrase-node scripts/bootstrap",
     "lint": "jade-cli lint",
-    "changelog": "jade-cli changelog"
+    "changelog": "jade-cli changelog",
+    "release": "jade-cli release"
   },
   "bugs": {
     "url": "https://github.com/colinzxz/jade/issues"
